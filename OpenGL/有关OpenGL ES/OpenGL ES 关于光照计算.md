@@ -1,5 +1,36 @@
 有关光照的代码公式, 在此用CC老师已经写好的代码做一个记录, 方便以后使用的时候查询.
 
+记录一个函数-->根据你的设置返回一个4x4矩阵变换的世界坐标系坐标。
+
+```
+//获取世界坐标系去模型矩阵中.  
+    /*  
+     LKMatrix4 GLKMatrix4MakeLookAt(float eyeX, float eyeY, float eyeZ,  
+     float centerX, float centerY, float centerZ,  
+     float upX, float upY, float upZ)  
+     等价于 OpenGL 中  
+     void gluLookAt(GLdouble eyex,GLdouble eyey,GLdouble eyez,GLdouble centerx,GLdouble centery,GLdouble centerz,GLdouble upx,GLdouble upy,GLdouble upz);  
+     
+     目的:根据你的设置返回一个4x4矩阵变换的世界坐标系坐标。  
+     参数1:眼睛位置的x坐标  
+     参数2:眼睛位置的y坐标  
+     参数3:眼睛位置的z坐标  
+     第一组:就是脑袋的位置  
+     
+     参数4:正在观察的点的X坐标  
+     参数5:正在观察的点的Y坐标  
+     参数6:正在观察的点的Z坐标  
+     第二组:就是眼睛所看物体的位置  
+     
+     参数7:摄像机上向量的x坐标  
+     参数8:摄像机上向量的y坐标  
+     参数9:摄像机上向量的z坐标  
+     第三组:就是头顶朝向的方向(因为你可以头歪着的状态看物体)  
+     */  
+    
+    GLKMatrix4 view1 = GLKMatrix4MakeLookAt(camX,camX,camZ,0,0,0,0,1,0);  
+```
+
 **其中注意 in out 相对应的输入输入属性写法, 其实与attribute varying的意思是一样的, 注意此处的写法**  
 **以及在外部的使用与attribute varying的区别**
 
